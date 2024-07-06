@@ -1,0 +1,81 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Alan",
+	"patterns": [
+		{
+			"include": "#control-keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#single-comments"
+		},
+		{
+			"include": "#op-keywords"
+		},
+		{
+			"include": "#constant-numbers"
+		},
+		{
+			"include": "#special-operators"
+		},
+		{
+			"include": "#function-names"
+		}
+	],
+	"repository": {
+		"control-keywords": {
+			"patterns": [{
+				"name": "keyword.control.alan",
+				"match": "\\b(if|else|while|return)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.alan",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.alan",
+					"match": "\\\\."
+				}
+			]
+		},
+		"single-comments": {
+			"patterns": [
+			  {
+				"match": "--.*$",
+                "name": "comment.line.alan"
+			  }
+			]		  
+		},
+		"op-keywords": {
+			"patterns": [{
+				"name": "keyword.operator.new.alan",
+				"match": "\\b(proc|reference|int|byte|true|false)\\b"
+			}]
+		},
+		"constant-numbers": {
+			"patterns": [{
+				"name": "constant.numeric.alan",
+				"match": "\\b\\d+\\b"
+			}]
+		},
+		"special-operators": {
+			"patterns": [{
+				"name": "variable.other.alan",
+				"match": "(:)"
+			}]
+		},
+        "function-names": {
+			"patterns": [
+				{
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+					"name": "entity.name.function"
+				}
+			]
+		  }
+	},
+	"scopeName": "source.alan"
+}
